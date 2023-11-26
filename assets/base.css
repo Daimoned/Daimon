@@ -18,6 +18,11 @@
     src: local("NovaSquare-Regular"), url(assets/fonts/NovaSquare-Regular.ttf) format("truetype");
 }
 
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: local('Poppins-Regular'), url(assets/fonts/Poppins-Regular.ttf);
+}
+
 body {
     background-color: #1b1b1b;
     color: #ffffff;
