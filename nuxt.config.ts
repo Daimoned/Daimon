@@ -1,5 +1,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  modules: ['nuxt-icon'],
   devServer: {
     port: 3000,
   },

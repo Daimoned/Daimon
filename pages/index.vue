@@ -9,14 +9,16 @@
                 <p>Welcome to Daimon, the better Minecraft Launcher.</p>
             </div>
             <div class="links">
-                <a href="/login" class="login">Login</a>
-                <a href="/register" class="signup">Register</a>
+                <a href="/login" class="login"><span><Icon class="e" name="uil:microsoft" color="white" /> Link Microsoft Account</span></a>
             </div>
         </div>
     </div>
 </template>
 <style scoped>
-    
+    .e {
+        margin-right: 5px;
+        margin-bottom: 2.5px;   
+    }
     .poppins-bold {
         font-family: "Noto-Black";
         font-size: 100px;
@@ -42,7 +44,7 @@
         gap: 20px;
     }
     .links a {
-        width: 150px;
+        width: 350px;
         height: 50px;
         color: white;
         border-radius: 10px;
