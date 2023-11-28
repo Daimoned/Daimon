@@ -27,6 +27,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"svelte-icons": "^2.1.0",
 		"tauri": "^0.15.0"
 	}
 }

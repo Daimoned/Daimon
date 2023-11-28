@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  svelte-icons:
+    specifier: ^2.1.0
+    version: 2.1.0
   tauri:
     specifier: ^0.15.0
     version: 0.15.0
@@ -5300,6 +5303,10 @@ packages:
     dependencies:
       svelte: 5.0.0-next.14
     dev: true
+
+  /svelte-icons@2.1.0:
+    resolution: {integrity: sha512-rHPQjweEc9fGSnvM0/4gA3pDHwyZyYsC5KhttCZRhSMJfLttJST5Uq0B16Czhw+HQ+HbSOk8kLigMlPs7gZtfg==}
+    dev: false
 
   /svelte-preprocess@5.1.1(postcss@8.4.31)(svelte@5.0.0-next.14)(typescript@5.3.2):
     resolution: {integrity: sha512-p/Dp4hmrBW5mrCCq29lEMFpIJT2FZsRlouxEc5qpbOmXRbaFs7clLs8oKPwD3xCFyZfv1bIhvOzpQkhMEVQdMw==}
