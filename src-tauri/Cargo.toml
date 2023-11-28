@@ -1,8 +1,8 @@
 [package]
 name = "app"
 version = "0.1.0"
-description = "The Better Minecraft Launcher"
-authors = ["daimoned"]
+description = "A Tauri App"
+authors = ["you"]
 license = ""
 repository = ""
 default-run = "app"

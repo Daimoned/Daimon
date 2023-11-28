@@ -1,13 +1,13 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
-    "beforeBuildCommand": "pnpm generate",
-    "beforeDevCommand": "pnpm nuxt",
-    "devPath": "http://localhost:3000",
-    "distDir": "../.output/public"
+    "beforeBuildCommand": "pnpm run build",
+    "beforeDevCommand": "pnpm run dev",
+    "devPath": "http://localhost:5173",
+    "distDir": "../public"
   },
   "package": {
-    "productName": "Daimon",
+    "productName": "daimon",
     "version": "0.1.0"
   },
   "tauri": {
@@ -29,7 +29,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.daimoned.daimon",
+      "identifier": "com.tauri.dev",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -58,7 +58,7 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "Daimon",
+        "title": "daimon",
         "width": 800
       }
     ]
