@@ -1,6 +1,7 @@
 <script>
     import IoIosAdd from 'svelte-icons/io/IoIosAdd.svelte';
     import MdClose from 'svelte-icons/md/MdClose.svelte';
+    import Instances from '../components/Instances.svelte';
     import axios from 'axios';
     import { onMount } from 'svelte';
 
@@ -18,7 +19,6 @@
     let versionOptions = []
     function getVersions() {
         var type = document.getElementById("type").value;
-        console.log(type)
         if (type === 'forge') {
             axios.get('https://meta.multimc.org/v1/net.minecraftforge/versions').then((response) => {
                 const data = response.data;
@@ -83,8 +83,8 @@
 
     fileInput?.addEventListener('change', function() {
         if (fileInput?.textContent !== fileInput) {
-            label.textContent = "You will upload:" + fileInput.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1] + ", click to change";
-            // reduce font size
+            label.textContent = "You will upload:   " + fileInput.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1] + ", click to change";
+            label.style.textAlign = 'center';
             label.style.fontSize = '0.70em';
             label.style.width = '250px';
         } else {
@@ -111,10 +111,10 @@
                     <label for="type" class="lbl">Type:</label>
                     <select	name="type" id="type" class="dropdown" required on:change={() => getVersions()} on:waiting={() => getVersions()} on:mount autocomplete="off">
                         <option value="vanilla">Vanilla</option>
+                        <option value="optifine">Vanilla (Optifine)</option>
                         <option value="vanilla-sn">Vanilla (Snapshots)</option>
                         <option value="forge" disabled>Forge</option>
                         <option value="fabric">Fabric</option>
-                        <option value="optifine">Optifine</option>
                     </select>
                     <label for="version" class="lbl">Version:</label>
                     <select name="version" id="version" class="dropdown" required>
@@ -144,8 +144,9 @@
         </div>
     </div>
     <div class="instance">
-
+        <Instances />
     </div>
+
 </main>
 <style>
     hr {
@@ -158,7 +159,11 @@
     #background {
         display: none;
     }
-
+    .instance {
+        z-index: l;
+        width: 100%;
+        background-color: #37373700;
+    }
     #background-label {
         display: inline-block;
         padding: 10px 20px;
