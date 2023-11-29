@@ -41,14 +41,18 @@
   </main>
   <style>
       .sbar-icons {
-              margin-top: 1rem;
-              margin-left: 5rem;
-              margin-right: 4rem;
-              background-color: #2b2b2b;
-              width: fit-content;
-              border-radius: 10px;
-              padding: 0.5rem;              
-      }
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgb(32, 32, 32);
+            border-radius: 10px;
+            padding: 1rem;
+
+        }
       .pill {
           border-radius: 15px;
           width: 50px;
