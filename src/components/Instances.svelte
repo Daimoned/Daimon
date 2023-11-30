@@ -1,43 +1,47 @@
+<script>
+    const instances = [{'name': 'test', 'description': 'test', 'id': 'test'}, {'name': 'test', 'description': 'Forge 1.16', 'id': 'test'}];
+</script>
 <br><br>
-<main>
+<main class="main">
     <div class="instance">
-        <button class="instance-card">
-                <h1 class="instance-title">Daimon</h1>
-                <p class="instance-message">I have midterms, will update soon.</p>
-        </button>
-        <button class="instance-card">
-            <h1 class="instance-title">Daimon</h1>
-            <p class="instance-message">I have midterms, will update soon.</p>
-        </button>
-        <button class="instance-card">
-            <h1 class="instance-title">Daimon</h1>
-            <p class="instance-message">I have midterms, will update soon.</p>
-        </button>
-        <button class="instance-card">
-            <h1 class="instance-title">Daimon</h1>
-            <p class="instance-message">I have midterms, will update soon.</p>
-        </button>
-        <button class="instance-card">
-            <h1 class="instance-title">Daimon</h1>
-            <p class="instance-message">I have midterms, will update soon.</p>
-        </button>
+        {#if instances && instances.length > 0}
+            {#each instances as instance}
+                <button class="instance-card" on:click={() => navigate(`/instances/${instance.id}`)}>
+                    <h1 class="instance-title">{instance.name}</h1>
+                    <p class="instance-message">{instance.description}</p>
+                </button>
+            {/each}
+        {:else}
+            <button class="instance-card">
+                <h1 class="instance-title">No instances found</h1>
+                <p class="instance-message">Create one by clicking the create instance button</p>
+            </button>
+        {/if}
     </div>
 </main>
 <style>
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
     button {
         background-color: #5a000000;
         border: none;
         color: white;
     }
     .instance {
-        position: absolute;
-        display: inline-grid;
-        align-items: center;
-        justify-items: center;
-        grid-template-columns: repeat(4, minmax(300px, 1rem));
-        gap: 1rem;
-        row-gap: 3rem;
-        transform: translateX(-15%);
+        display: grid;
+        grid-template-columns: repeat(3, minmax(300px, 1rem));
+        grid-gap: 3rem;
+        margin-left: auto;
+    }
+    @media only screen and (max-width: 1500px) {
+        .instance {
+            grid-template-columns: repeat(1, minmax(300px, 1rem));
+            margin-right:auto;
+        }
     }
     .instance-card {
         background-color: #fff;
@@ -50,7 +54,10 @@
         border-radius: 10px;
         text-align: center;
         padding: 1rem;
-        width: fit-content;
+        max-width: 250px;
+        max-height: 200px;
+        min-width: 200px;
+        min-height: 150px; 
         background-blend-mode: luminosity;
         transition: 0.5s;
         user-select: none;

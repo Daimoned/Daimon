@@ -4,6 +4,7 @@
     import Instances from '../components/Instances.svelte';
     import axios from 'axios';
     import { onMount } from 'svelte';
+    import { redirect } from '@sveltejs/kit';
 
     onMount(getVersions);
     onMount(mount_upload)
@@ -135,7 +136,7 @@
             </div>
         </dialog>
         <div class="inst-menu-items">
-            <button class="new_instance" on:click={() => showCreateInstance()}>
+            <button class="new_instance" on:click={() => window.location.href = "/create_instance"}>
                 <IoIosAdd />
                 <span>
                     New Instance
