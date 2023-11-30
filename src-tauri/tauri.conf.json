@@ -3,8 +3,8 @@
   "build": {
     "beforeBuildCommand": "pnpm run build",
     "beforeDevCommand": "pnpm run dev",
-    "devPath": "http://localhost:5173",
-    "distDir": "../public"
+    "devPath": "http://127.0.0.1:5173",
+    "distDir": "../.svelte-kit"
   },
   "package": {
     "productName": "daimon",
@@ -29,7 +29,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.daimoned.daimon",
       "longDescription": "",
       "macOS": {
         "entitlements": null,

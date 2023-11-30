@@ -72,27 +72,34 @@
     async function hoddleSubmission(event) {
         event.preventDefault();
         const formData = new FormData(event.target);
-        try {
-            const r = await axios.request({
+        const img = formData.get('image');
+
+        const r = new FileReader();
+
+        r.onloadend = async function() {
+            try {
+                const c = await axios.request({
             method: 'POST',
             url: `/api/create_instance`,
-            
             data: {
                 name: formData.get('name'),
                 description: formData.get('description'),
                 type: formData.get('type'),
                 version: formData.get('version'),
-                image: formData.get('image')
+                image: r.result,
             },
-            })
-        } catch (exception) {
-        }
+            });
+            } catch (err) {
+
+            }
+        };
+        r.readAsDataURL(img);
     }
 </script>
 <main>
     <form class="container" method="post" on:submit={hoddleSubmission}>
         <div class="i-left">
-            <h2>Instance Image: </h2>
+            <h2>Instance Background Image: </h2>
             <img id="preview" src="/images/instances/default.webp" alt="Instance Background" width="350px" height="200px">
             <input type="file" id="image" name="image" accept="image/*" on:change={loadFile} autocomplete="off">
         </div>
