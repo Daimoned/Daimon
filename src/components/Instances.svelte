@@ -1,5 +1,15 @@
 <script>
-    const instances = [{'name': 'test', 'description': 'test', 'id': 'test'}, {'name': 'test', 'description': 'Forge 1.16', 'id': 'test'}];
+    import axios from "axios";
+    import { onMount } from "svelte";
+    async function get_instances() {
+        const instances = await axios.get("/api/get_instances")
+        return instances
+    }
+    let instances = []
+    onMount(async () => {
+        instances = await get_instances()
+        instances = instances.data
+    })
 </script>
 <br><br>
 <main class="main">
@@ -7,8 +17,11 @@
         {#if instances && instances.length > 0}
             {#each instances as instance}
                 <button class="instance-card" on:click={() => navigate(`/instances/${instance.id}`)}>
-                    <h1 class="instance-title">{instance.name}</h1>
-                    <p class="instance-message">{instance.description}</p>
+                    <div class="instance-image" style='background-image: url("{instance.image}");'><h1>e</h1></div>
+                    <div>
+                        <h1 class="instance-title">{instance.name}</h1>
+                        <p class="instance-message">{instance.description}</p>
+                    </div>
                 </button>
             {/each}
         {:else}
@@ -20,6 +33,12 @@
     </div>
 </main>
 <style>
+    .instance-image {
+        filter: blur(10px);
+        background-size: cover;
+        background-position: center;
+        z-index: 0;
+    }
     .main {
         display: flex;
         flex-direction: column;
@@ -47,7 +66,6 @@
         background-color: #fff;
         background-color: rgb(32, 32, 32);
         image-rendering: crisp-edges;
-        background-image: url(/images/background.webp);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -58,7 +76,7 @@
         max-height: 200px;
         min-width: 200px;
         min-height: 150px; 
-        background-blend-mode: luminosity;
+        cursor:progress;
         transition: 0.5s;
         user-select: none;
         transform: scale(1.2);

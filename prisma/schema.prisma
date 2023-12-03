@@ -13,9 +13,10 @@ datasource db {
 model instances {
   id        Int     @id @default(autoincrement())
   name      String
-  background-image     String
+  background_image  String
   description String
-  
+  framework  String
+  version    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
