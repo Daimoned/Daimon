@@ -28,12 +28,12 @@
                     </a>
             </div><br>
             <div class="sbaricon">
-                  <a href="/mods" class="sbar-icon">
+                  <a href="/" class="sbar-icon">
                       <FaCubes style="color: white; " class="sbar-icon"/>
                   </a>
           </div><br>
           <div class="sbaricon">
-            <a href="/settings" class="sbar-icon">
+            <a href="/" class="sbar-icon">
                 <FaRegUserCircle style="color: white; " class="sbar-icon"/>
             </a>
           </div>
