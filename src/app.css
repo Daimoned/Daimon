@@ -1,8 +1,0 @@
-@font-face {
-    font-family: 'NotoSansJP-Black';
-    src: local("NotoSansJP-Black"),     url(/fonts/NotoSansJP-Black.ttf) format('truetype');
-}
-
-body {
-    background-color: rgb(31, 31, 31);
-}
