@@ -1,4 +1,5 @@
 <script>
+    import { redirect } from "@sveltejs/kit";
     import axios from "axios";
     import { onMount } from "svelte";
     async function get_instances() {
@@ -16,7 +17,7 @@
     <div class="instance">
         {#if instances && instances.length > 0}
             {#each instances as instance}
-                <button class="instance-card" on:click={() => navigate(`/instances/${instance.id}`)}>
+                <button class="instance-card" on:click={() => redirect(308,`/instances/${instance.id}`)}>
                     <div class="instance-image" style='background-image: url("{instance.image}");'><h1>e</h1></div>
                     <div>
                         <h1 class="instance-title">{instance.name}</h1>

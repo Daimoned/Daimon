@@ -1,13 +1,20 @@
-import {PrismaClient} from '@prisma/client';
 import { json } from '@sveltejs/kit';
+import * as fs from 'fs';
 
 export async function GET(request) {
-    const database = new PrismaClient();
-    const c = await database.instances.findMany()    
-    /*
-    P(t) = c/1+ae^-b5
-
-P(o) = c/1+a
- */
-    return json(c);
+    try {
+        const profiles_directory = process.cwd() + "/profiles";
+        var profiles = [];
+        for (const file of fs.readdirSync(profiles_directory)) {
+            if (file.endsWith(".json")) {
+                profiles.push(JSON.parse(fs.readFileSync(profiles_directory + "/" + file, 'utf8')));
+            }
+        }
+        return json(profiles);
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            fs.mkdirSync(process.cwd() + "/profiles");
+            return json([]);
+        }
+    }
 }

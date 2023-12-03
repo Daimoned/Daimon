@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"app": "tauri dev",
-		"compile": "prisma db push && tauri build",
+		"compile": "tauri build",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
@@ -31,7 +31,6 @@
 	"dependencies": {
 		"@prisma/client": "5.6.0",
 		"axios": "^1.6.2",
-		"prisma": "^5.6.0",
 		"svelte-icons": "^2.1.0",
 		"svelte-preprocess": "^5.1.1",
 		"tauri": "^0.15.0",
